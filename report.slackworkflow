@@ -1,0 +1,222 @@
+{
+    "source_id": "409325157107122144",
+    "version": "1",
+    "workflow": {
+        "name": "Report",
+        "blueprint": {
+            "version": "1",
+            "trigger": {
+                "type": "channel_action",
+                "id": "10b481cd-67c4-4511-acee-b3d680dc93ab",
+                "config": {
+                    "name": "Report a Message",
+                    "channels": [
+                        "C647MPZEC"
+                    ],
+                    "callback_id": "e3595d5b-16ab-4de0-9ee1-22b288bfe63d",
+                    "description": "Report a Message"
+                }
+            },
+            "steps": [
+                {
+                    "type": "dialog",
+                    "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3",
+                    "config": {
+                        "dialog_title": "Report a Message",
+                        "dialog_elements": [
+                            {
+                                "name": "ae67f18f-f44c-4cb1-b77b-d12df1353e80",
+                                "type": "textarea",
+                                "label": "What’s going on?",
+                                "optional": false
+                            },
+                            {
+                                "name": "bde50a87-b03a-4db7-aa0c-26330d6fc66b",
+                                "type": "select",
+                                "label": "Who’s involved?",
+                                "optional": false,
+                                "data_source": "users"
+                            },
+                            {
+                                "name": "219fea2e-5e06-4af7-929a-907def734e1f",
+                                "type": "select",
+                                "label": "Where’s it happening?",
+                                "optional": false,
+                                "data_source": "conversations"
+                            },
+                            {
+                                "name": "46dd27e4-0d02-4c3d-8a01-ae7def3c0214",
+                                "type": "text",
+                                "label": "Link to message",
+                                "subtype": "",
+                                "optional": true,
+                                "placeholder": ""
+                            }
+                        ],
+                        "dialog_submit_label": "",
+                        "delivery_button_label": "Open Form",
+                        "delivery_message_text": "Hello! To get started, please fill out this form."
+                    }
+                },
+                {
+                    "type": "message",
+                    "id": "623a7812-0a2f-4d43-ab74-03db11e5ab73",
+                    "config": {
+                        "user": {
+                            "ref": "10b481cd-67c4-4511-acee-b3d680dc93ab==user"
+                        },
+                        "has_button": false,
+                        "message_text": "Your report has been sent.",
+                        "message_blocks": [
+                            {
+                                "type": "rich_text",
+                                "elements": [
+                                    {
+                                        "type": "rich_text_section",
+                                        "elements": [
+                                            {
+                                                "text": "Your report has been sent.",
+                                                "type": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "message",
+                    "id": "c2124fa5-a285-42a4-a71c-975eb1909db7",
+                    "config": {
+                        "user": {
+                            "value": "U64UPCG12"
+                        },
+                        "has_button": true,
+                        "button_label": "Acknowledge Report",
+                        "message_text": "We received a report from {{10b481cd-67c4-4511-acee-b3d680dc93ab==user}} about {{fac02319-a2fa-4d4c-a415-eb813d5b33a3==bde50a87-b03a-4db7-aa0c-26330d6fc66b==user}} in {{fac02319-a2fa-4d4c-a415-eb813d5b33a3==219fea2e-5e06-4af7-929a-907def734e1f==channel}}:\n\n{{fac02319-a2fa-4d4c-a415-eb813d5b33a3==ae67f18f-f44c-4cb1-b77b-d12df1353e80==text}}\n\n{{fac02319-a2fa-4d4c-a415-eb813d5b33a3==46dd27e4-0d02-4c3d-8a01-ae7def3c0214==text}}",
+                        "message_blocks": [
+                            {
+                                "type": "rich_text",
+                                "elements": [
+                                    {
+                                        "type": "rich_text_section",
+                                        "elements": [
+                                            {
+                                                "text": "We received a report from ",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "id": "10b481cd-67c4-4511-acee-b3d680dc93ab==user",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "user"
+                                            },
+                                            {
+                                                "text": " about ",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3==bde50a87-b03a-4db7-aa0c-26330d6fc66b==user",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "user"
+                                            },
+                                            {
+                                                "text": " in ",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3==219fea2e-5e06-4af7-929a-907def734e1f==channel",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "channel"
+                                            },
+                                            {
+                                                "text": ":\n\n",
+                                                "type": "text"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "rich_text_quote",
+                                        "elements": [
+                                            {
+                                                "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3==ae67f18f-f44c-4cb1-b77b-d12df1353e80==text",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "text"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "rich_text_section",
+                                        "elements": [
+                                            {
+                                                "text": "\n",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3==46dd27e4-0d02-4c3d-8a01-ae7def3c0214==text",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "message",
+                    "id": "24c2e226-a9af-406d-8516-c38dcef1f92a",
+                    "config": {
+                        "user": {
+                            "ref": "10b481cd-67c4-4511-acee-b3d680dc93ab==user"
+                        },
+                        "has_button": false,
+                        "message_text": "Your report about {{fac02319-a2fa-4d4c-a415-eb813d5b33a3==bde50a87-b03a-4db7-aa0c-26330d6fc66b==user}} in {{fac02319-a2fa-4d4c-a415-eb813d5b33a3==219fea2e-5e06-4af7-929a-907def734e1f==channel}} has been reviewed.",
+                        "message_blocks": [
+                            {
+                                "type": "rich_text",
+                                "elements": [
+                                    {
+                                        "type": "rich_text_section",
+                                        "elements": [
+                                            {
+                                                "text": "Your report about ",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3==bde50a87-b03a-4db7-aa0c-26330d6fc66b==user",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "user"
+                                            },
+                                            {
+                                                "text": " in ",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3==219fea2e-5e06-4af7-929a-907def734e1f==channel",
+                                                "type": "workflowtoken",
+                                                "property": "",
+                                                "data_type": "channel"
+                                            },
+                                            {
+                                                "text": " has been reviewed.",
+                                                "type": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
