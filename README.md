@@ -1,5 +1,5 @@
 # Slack Workflows
-A collection of useful Slack workflows for HR teams.
+A collection of useful Slack workflows for HR teams, courtesy of Hear Me Out.
 
 ## Installation
 1. Decide which channel the workflow will belong to (workflows are tied to channels). If your team has a #help channel, that’s probably a good candidate.
