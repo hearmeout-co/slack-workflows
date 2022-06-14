@@ -22,7 +22,7 @@
                     "type": "dialog",
                     "id": "fac02319-a2fa-4d4c-a415-eb813d5b33a3",
                     "config": {
-                        "dialog_title": "Report a Message",
+                        "dialog_title": "Report Anonymously",
                         "dialog_elements": [
                             {
                                 "name": "ae67f18f-f44c-4cb1-b77b-d12df1353e80",
